@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0, 200..1000;1,200..1000&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+@theme {
+  --breakpoint-xs: 480px; /* 30rem */
+  --breakpoint-sm: 640px;/* 40rem */
+  --breakpoint-md: 768px;/* 48rem */
+  --breakpoint-lg: 1024px;/* 64rem */
+  --breakpoint-xl: 1280px;/* 80rem */
+  --breakpoint-2xl: 1536px;/* 96rem */
+  --font-urbanist: 'Urbanist', sans-serif;
+  --font-mulish: 'Mulish', sans-serif;
+  --color -accent:#7B1984;
+  --color-black: #000000;
+  --color-todo: #FAC3FF;
+  --color-progress: #85D9F1; 
+  --color-completed: #CEFFCC ;
+  --color-bg-todo-list:#F1F1F1;
+  --color-list-border:#FFFAEA;
+  --color-black-500:#2F2F2F;
+  --color-bg-status:#DDDADD; 
+  --color-error:#E13838;
+  --color-success:#1B8D17;
+}
