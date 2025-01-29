@@ -1,22 +1,28 @@
 #!/bin/sh
+
 # Get the committer's name
 committer_name=$(git log -1 --pretty=%an)
 
 # Run commitlint to validate commit message format
 npx --no-install commitlint --edit $1
 
+# Capture the exit code from commitlint
+commitlint_exit_code=$?
+
 # Check if commitlint failed
-if [ $? -ne 0 ]; then
-  echo "Hey $committer_name, your commit message does not follow the required format."
-  
-  # Custom error messages based on your rules
-  echo "Here are the rules you need to follow:"
+if [ $commitlint_exit_code -ne 0 ]; then
+  # Output custom message
+  echo "Oops, $committer_name! Your commit message doesn't follow the required format."
+  echo ""
+  echo "Please follow these rules for your commit message:"
   echo "1. The commit header (first line) should be a maximum of 72 characters."
   echo "2. The commit type must be one of the following: feat, fix, docs, style, refactor, test, chore."
-  echo "3. The subject (the commit message) should not use Start Case or Pascal Case."
-  echo "4. The commit type must be in lowercase."
-
-  echo "Please fix these issues and try again."
-
+  echo "3. The subject (message) should not use Start Case or Pascal Case."
+  echo "4. The commit type must be lowercase."
+  echo ""
+  echo "Example of a valid message: 'feat: add login functionality'"
+  echo ""
+  
+  # Prevent commit by exiting with status 1
   exit 1
 fi
