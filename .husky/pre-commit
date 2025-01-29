@@ -1,8 +1,7 @@
-npm test
-
 # .husky/pre-commit
 
-# Your WIP script
-# ...
+# Validate commit message
+#npx --no-install commitlint --edit $1
 
-exit 1
+# Run tests (optional)
+npm test
